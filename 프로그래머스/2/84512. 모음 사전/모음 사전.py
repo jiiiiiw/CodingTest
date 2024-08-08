@@ -5,7 +5,7 @@ def solution(word):
     
     def dfs(cnt, w):
         if cnt == 5:
-            return 
+            return False
         for i in range(len(words)):
             word_list.append(w + words[i])
             dfs(cnt+1, w + words[i])
