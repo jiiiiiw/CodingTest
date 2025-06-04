@@ -1,11 +1,9 @@
-# 사전순으로 정렬해주는 sort의 특징을 이용하자
-
 def solution(phone_book):
-    phone_book = sorted(phone_book)
-    for f_idx in range(len(phone_book)-1):
-        b_idx = f_idx + 1
-        f_num = phone_book[f_idx]
-        b_num = phone_book[b_idx]
-        if f_num == b_num[:len(f_num)]:
-            return False
-    return True
+    answer = True
+    phone_book.sort()
+    new_book = phone_book[1:]
+    for p, n in zip(phone_book, new_book):
+        p_len = len(p)
+        if p == n[:p_len]: return False
+        
+    return answer
