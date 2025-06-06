@@ -1,12 +1,18 @@
+from collections import deque
+
 def solution(prices):
-    result = [0] * len(prices)
-    stack = []
-    for cur in range(len(prices)):
-        while stack and prices[stack[-1]] > prices[cur]:
-            pas = stack.pop()
-            result[pas] = cur - pas
-        stack.append(cur)
-    for i in stack:
-        result[i] = len(prices) - i - 1
+    answer = []
+    prices = deque(prices)
     
-    return result
+    while prices:
+        top = prices.popleft()
+        second = 0
+        
+        for price in prices:
+            second += 1
+            if top > price:
+                break
+        
+        answer.append(second)
+        
+    return answer
