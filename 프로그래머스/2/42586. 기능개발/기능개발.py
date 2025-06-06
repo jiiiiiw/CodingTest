@@ -4,20 +4,16 @@ def solution(progresses, speeds):
     
     for p, s in zip(progresses, speeds):
         newP = 100 - p
-        if newP % s == 0: restJob.append(newP // s)
-        else: restJob.append((newP // s) + 1)
-        
-    restJob.reverse()
-    
-    top = restJob[-1]
-    restJob.pop()
-    answer.append(1)
-    
-    while restJob:
-        j = restJob.pop()
-        if j <= top: answer[-1] += 1
-        else: 
+        restJob.append((newP + s - 1) // s)  # 올림처리 간결하게
+
+    for day in restJob:
+        if not answer:
             answer.append(1)
-            top = j
-    
+            top = day
+        elif day <= top:
+            answer[-1] += 1
+        else:
+            answer.append(1)
+            top = day
+
     return answer
