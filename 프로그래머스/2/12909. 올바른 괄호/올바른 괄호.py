@@ -1,12 +1,14 @@
-def solution(s):
-    Stack = []
-    for bracket in s:
-        if bracket == "(":
-            Stack.append(bracket)
-        elif bracket == ")":
-            if Stack and Stack[-1] == "(":
-                Stack.pop()
-            else:
-                Stack.append(bracket)
-    # print(Stack)
-    return False if Stack else True
+def solution(string):
+    answer = True
+    tmp = []
+    
+    for s in string:
+        if not tmp:
+            if s == ')': answer = False
+            else: tmp.append(s)
+        else:
+            if s == ')': tmp.pop()
+            else: tmp.append(s)
+    
+    if tmp: answer = False
+    return answer
