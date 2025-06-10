@@ -1,21 +1,27 @@
 import heapq
 
 def solution(scoville, K):
-    heapq.heapify(scoville) # heap 자료구조로 변경
-    # print(scoville)
-    cnt = 0 # 섞는 횟수 초기화
+    answer = 0
+    top = 0
+    #s_heap = []
     
-    while True:
-        if len(scoville) == 1 and scoville[0] < K:
-            return -1
+    heapq.heapify(scoville)
+    
+    for i in range(len(scoville) - 1):
+        top = heapq.heappop(scoville)
+        if top < K:
+            answer += 1
+            newS = top + 2*heapq.heappop(scoville)
+            heapq.heappush(scoville, newS)
+    
+    if heapq.heappop(scoville) < K: answer = -1
         
-        low1 = heapq.heappop(scoville)
-        
-        if low1 < K:
-            low2 = heapq.heappop(scoville)
-            new = low1 + (low2 * 2)
-            heapq.heappush(scoville, new)
-            cnt += 1
-        else:
-            return cnt
-        
+    
+    #while top < K:
+    #    top = heapq.heappop(scoville)
+    #    if top < K:
+    #        answer += 1
+    #        newS = top + 2*heapq.heappop(scoville)
+    #        heapq.heappush(scoville, newS)
+    
+    return answer
