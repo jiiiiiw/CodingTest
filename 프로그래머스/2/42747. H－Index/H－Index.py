@@ -1,12 +1,9 @@
 def solution(citations):
-    citations.sort(reverse = True)
-    Hindex = 0
-    
-    for idx in range(len(citations)):
-        MinVal = idx + 1
-        CurrVal = citations[idx]
-        if MinVal <= CurrVal:
-            Hindex = MinVal
+    citations.sort(reverse=True) 
+    h = 0
+    for i, c in enumerate(citations):
+        if c >= i + 1:
+            h = i + 1
         else:
             break
-    return Hindex
+    return h
