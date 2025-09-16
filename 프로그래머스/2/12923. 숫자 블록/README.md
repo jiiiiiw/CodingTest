@@ -1,10 +1,10 @@
 # [level 2] 숫자 블록 - 12923 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12923) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12923?language=java) 
 
 ### 성능 요약
 
-메모리: 10.7 MB, 시간: 6553.20 ms
+메모리: 54.8 MB, 시간: 275.82 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 09월 19일 12:31:18
+2025년 09월 16일 18:46:38
 
 ### 문제 설명
 
